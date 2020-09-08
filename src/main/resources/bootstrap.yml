@@ -1,0 +1,38 @@
+##########################################
+#1、应用基础配置
+#   描述:引用pom.xml时，必须在application.yml加载顺序之后。bootstrap.yml就不能获取到pom.xml的属性
+#
+#   @@ 内标记的变量，均由maven编译时动态的从pom.xml 替换到yml中
+#
+##########################################
+spring:
+  application:
+    name: @pom.artifactId@
+  netty:
+    web:
+      custom:
+        accept-group-pool-name: 1
+        worker-group-thread: 2
+  profiles:
+    active: @spring.cloud.config.profile@
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gtp-discovery-dev-env-service.dev-env.svc.cluster.local:11001/eureka/
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 30
+  instance:
+    lease-expiration-duration-in-seconds: 3
+    lease-renewal-interval-in-seconds: 1
+    prefer-ip-address: true
+
+server:
+  port: 31900
+
+custom:
+  uri: @spring.cloud.config.uri@
+  profiles: @spring.cloud.config.profile@
+
+
