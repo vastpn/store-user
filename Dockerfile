@@ -8,7 +8,7 @@ WORKDIR /home
 ADD ./target/*.jar app.jar
 
 # 添加配置文件
-ENV CONFIG_ENV="dev"
+ENV CONFIG_ENV="test"
 # EXPOSE 8080
 #
 ##添加文件:
