@@ -1,5 +1,5 @@
 ##定义镜像的起始内容 基础镜像
-FROM registry.cn-hangzhou.aliyuncs.com/jvv-prod-hub/alpine-java8-utc8-chinese:0.1.1
+FROM reg.devharbor.com/test/alpine-java8-utc8-chinese:0.1.1
 
 # 工作目录
 WORKDIR /home
