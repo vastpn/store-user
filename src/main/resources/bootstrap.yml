@@ -11,7 +11,7 @@ spring:
   netty:
     web:
       custom:
-        accept-group-pool-name: 1
+        accept-group-thread: 1
         worker-group-thread: 2
   profiles:
     active: @spring.cloud.config.profile@
