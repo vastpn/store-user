@@ -20,7 +20,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://gtp-discovery-dev-env-service.dev-env.svc.cluster.local:11001/eureka/
+      defaultZone: @spring.cloud.registry.uri@
     register-with-eureka: true
     registry-fetch-interval-seconds: 30
   instance:
@@ -34,5 +34,6 @@ server:
 custom:
   uri: @spring.cloud.config.uri@
   profiles: @spring.cloud.config.profile@
+  registry: @spring.cloud.registry.uri@
 
 

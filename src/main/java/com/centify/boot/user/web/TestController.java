@@ -59,6 +59,9 @@ public class TestController {
     @Value("${custom.profiles}")
     private String envProfiles;
 
+    @Value("${custom.registry}")
+    private String registry;
+
     @RequestMapping(value = "/envs")
     public Map envs() throws IOException {
 
@@ -76,6 +79,7 @@ public class TestController {
         result.put("envActive",envActive);
         result.put("envUri",envUri);
         result.put("envProfiles",envProfiles);
+        result.put("registry",registry);
 
         return result;
     }
