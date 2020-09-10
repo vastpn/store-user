@@ -8,7 +8,7 @@ WORKDIR /home
 ADD ./target/*.jar app.jar
 
 # 添加配置文件
-ENV CONFIG_ENV="dev"
+ENV CONFIG_ENV="test"
 # EXPOSE 8080
 
 # 数据卷
@@ -16,4 +16,4 @@ VOLUME ["/home"]
 # 解决 阿里云的tomcat启动慢的问题 -Djava.security.egd=file:/dev/./urandom
 # 以 application.properties 配置文件 启动项目
 
-ENTRYPOINT ["/bin/sh","-c","java -server -XX:SurvivorRatio=6 -XX:NewRatio=1 -XX:+UseParallelGC -jar app.jar -Djava.security.egd=file:/dev/./urandom"]
+ENTRYPOINT ["/bin/sh","-c","java -jar app.jar -Djava.security.egd=file:/dev/./urandom --spring.profiles.active=${CONFIG_ENV}"]
