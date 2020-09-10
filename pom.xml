@@ -30,6 +30,70 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <!--此方式的子项目，可以继承父工程已定义的profiles所有标签信息【已验证】-->
+        <profile>
+            <id>dev</id>
+            <build>
+                <!-- 指定 docker环境相关编译信息,引入父POM已定义的docker插件（父工程指定了docker相关参数）-->
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>local</id>
+            <build>
+                <!-- 指定 docker环境相关编译信息-->
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <build>
+                <!-- 指定 docker环境相关编译信息-->
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <build>
+                <!-- 指定 docker环境相关编译信息-->
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <build>
+                <!-- 指定 docker环境相关编译信息-->
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <!--编译、源码、资源文件 Maven插件-->
