@@ -109,5 +109,35 @@
             </plugin>
         </plugins>
     </build>
-
+    <!-- 私有仓库下载地址 -->
+    <repositories>
+        <repository>
+            <id>GCR</id>
+            <name>gcr</name>
+            <url>http://192.168.1.5:8081/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>GCR</id>
+            <name>gcr</name>
+            <url>http://192.168.1.5:8081/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
