@@ -5,7 +5,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/jvv-prod-hub/alpine-java8-utc8-chinese:0.
 WORKDIR /home
 
 # 添加配置文件
-ENV CONFIG_ENV="prod"
+ENV CONFIG_ENV="pre"
 
 # 将项目添加到镜像的根目录, 保持 app.jar 这个文件名
 ADD ./target/store-user-${CONFIG_ENV}.jar app.jar
