@@ -96,6 +96,7 @@
     </profiles>
 
     <build>
+        <finalName>${project.name}-${spring.cloud.config.profile}</finalName>
         <plugins>
             <!--编译、源码、资源文件 Maven插件-->
             <plugin>
