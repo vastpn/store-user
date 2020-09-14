@@ -4,7 +4,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/jvv-prod-hub/alpine-java8-utc8-chinese:0.
 # 工作目录
 WORKDIR /home
 
-# 将项目添加到镜像的根目录, 保持 app.js 这个文件名
+# 将项目添加到镜像的根目录, 保持 app.jar 这个文件名
 ADD ./target/store-user-prod.jar app.jar
 
 # 添加配置文件
