@@ -2,6 +2,8 @@ package com.centify.boot.user.web;
 
 import com.centify.boot.user.bean.vo.User;
 import io.netty.buffer.Unpooled;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -42,6 +44,7 @@ import java.util.Optional;
  *   1.0   2020/9/2 10:27        tanlin            new file.
  * <pre>
  */
+@Api(tags = "测试通讯类型服务", description = "Restfull")
 @RestController
 @RequestMapping
 public class TestController {
@@ -62,6 +65,7 @@ public class TestController {
     @Value("${custom.registry}")
     private String registry;
 
+    @ApiOperation(value = "环境变量")
     @RequestMapping(value = "/envs")
     public Map envs() throws IOException {
 
@@ -83,6 +87,7 @@ public class TestController {
 
         return result;
     }
+    @ApiOperation(value = "test 返回对象")
     @RequestMapping(value = "/test")
     public Map test(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -101,7 +106,7 @@ public class TestController {
 
         return result;
     }
-
+    @ApiOperation(value = "delete 协议")
     @DeleteMapping("/delete/{userName}/{ids}")
     public String delete(@PathVariable String userName, @PathVariable String ids){
         return "delete:"+userName+"-"+ids;
@@ -125,10 +130,10 @@ public class TestController {
                 .body(new InputStreamResource(file.getInputStream()));
     }
 
-    @GetMapping("/{a}/{b}")
-    public Integer get(@PathVariable Integer a, @PathVariable Integer b) {
-        return a + b;
-    }
+//    @GetMapping("/{a}/{b}")
+//    public Integer get(@PathVariable Integer a, @PathVariable Integer b) {
+//        return a + b;
+//    }
     @GetMapping("/reqparam")
     public Map params(@RequestParam("id") Integer id, @RequestParam("name") String name, @RequestParam("inTime") String inTime){
         Map result = new HashMap();
